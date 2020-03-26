@@ -1,0 +1,41 @@
+A.  SELECT s.fName,s.sName,s.telNo FROM easydrive.seniorinstructor s,easydrive.manager m where s.idSeniorInstructor=m.SeniorInstructor_idSeniorInstructor
+
+B.  select addresss from easydrive.office where city='glasgow';
+
+C.  select fName,sName from easydrive.instructor where sex='F' and office_oName='Bearsden'
+
+D.  select office_oName,count(Office_oName) as number from easydrive.staff
+group by office_oName
+order by Office_oName
+	
+E.  SELECT count(c.office_oName) as clent_number,o.city from easydrive.client c,easydrive.office o where o.oName=c.office_oName
+group by o.city
+order by o.city
+
+F.  create view text as select * from (select * from thtext union all select * from prtext) as a;
+SELECT t.Instructor_idInstructor,t.time as textday,t.texttime,c.time as courseday,c.couresetime FROM text t,easydrive.courese c 
+where t.Instructor_idInstructor=c.Instructor_idInstructor and left(c.time,4)=2017 and left(t.time,4)=2017
+group by t.Instructor_idInstructor
+order by t.Instructor_idInstructor
+
+G.  select * from easydrive.interview 
+
+H.  select sum(sex='F') as femalenumber,sum(sex='M') as malenumber,office_oName from easydrive.client where office_oName='Bearsden'
+
+I.  select fName,sName,2017-left(DoB,4) as age from easydrive.instructor where 1962>left(DoB,4)
+
+J.  SELECT idCar FROM easydrive.car where faults=0
+
+K.  SELECT idCar FROM easydrive.car where Office_oName='Bearsden'
+
+L.  SELECT c.fName,c.sName,c.File_idFile FROM easydrive.client c,easydrive.file f where c.File_idFile=f.idFile and f.accomplishmentDate like '%2000-01%'
+
+M.  SELECT c.fName,c.sName,c.File_idFile,f.try FROM easydrive.client c, easydrive.file f where c.File_idFile=f.idFile and f.try>2 and f.status='No'
+
+N.  SELECT idCourese,courseMileage as Avg FROM easydrive.courese where courseMileage!='null'
+
+O.  SELECT count(Office_oName),Office_oName FROM easydrive.staff
+group by Office_oName
+order by office_oName
+
+		
